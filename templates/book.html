@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ books[book_index]['title'] }}{% endblock %}
+{% block content %}
+    <h1>{{ books[book_index]['title'] }}</h1>
+
+        <h4>Author(s)</h4>
+        {% for author in books_authors %}
+            <li><a href = "/authors/{{ author.id }}/"> {{ author.name }}</a></li>
+        {% endfor %}
+
+        <h4>Subjects</h4>
+        {% for subject in books[book_index]['subjects'] %}
+            <li class="subjectText">{{ subject }}</li>
+        {% endfor %}
+
+        <h4>Editions</h4>
+        {% for edition in books[book_index]['editions']|sort(attribute='publish_date') %}
+            <h5><a href="/books/{{ books[book_index]['id'] }}/editions/{{ edition['id'] }} ">{{ edition.publish_date }}</a></h5>
+            <img src="http://covers.openlibrary.org/b/id/{{ edition.cover }}-M.jpg">
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,101 @@
+html {
+    font-size: 16pt;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+/* page main headings */
+h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    background-color: #000000;
+    color: #ffffff;
+    max-width: 100%;
+    padding: 25px 25px;
+}
+
+
+/* smaller headings (ex. Author(s), Subjects, Editions, etc) */
+
+h4 {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 8px;
+    max-width: 100%;
+}
+
+a:link, a:visited {
+    color: #8c8c8c;
+}
+
+a:hover, a:active {
+    color: #ffcc99;
+}
+
+/* main links (ex. list of authors, list of books) */
+.mainLinks {
+    text-transform: lowercase;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainLinks a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+.mainLinks a:link, .mainLinks a:visited {
+    background-color: #8c8c8c;
+    color: #ffffff;
+    width: 100%;
+    padding: 1.5% 4%;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.mainLinks a:hover, .mainLinks a:active {
+    background-color: #ffcc99;
+}
+
+.content {
+    max-width: 13.3in;
+    font-size: 12pt;
+    color: #8c8c8c;
+    list-style-type: none;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content {
+        padding-right: .5in;
+    }
+}
+
+#404 {
+    max-width: 10px;
+}
+
+/* images */
+.container {
+    width: 100px;
+    height: 120px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container404 {
+    width: 800px;
+    height: 120px;
+}
+
+.container404 img {
+    width: 100%;
+    height: auto;
+}
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <title>{% block title %}{% endblock %} - Books about Elizabeth I</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="content">{% block content %}
+    {% endblock %}</div>
+
+</body>
+</html>

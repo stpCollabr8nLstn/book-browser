@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1>Books about Elizabeth I</h1>
+    <ul class="mainLinks"><a href="/authors/">List of Authors</a></ul>
+    <li class="generalText">{{ num_authors }} authors</li>
+    <ul class="mainLinks"><a href="/books/">List of Books</a></ul>
+    <li class="generalText">{{ num_books }} books, {{ num_editions }} editions</li>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ author.name }}{% endblock %}
+{% block content %}
+    <h1>{{ author['name'] }}</h1>
+    <h4>Books</h4>
+
+    {% for book in authors_books %}
+        <li class="smallLinks"><a href = "/books/{{ book['id'] }}/"> {{ book['title'] }}</a></li>
+    {% endfor %}
+
+    {% if author.birth_date %}
+    <h4>Birth Date</h4>
+        <li>{{ author.birth_date }}</li>
+    {% endif %}
+
+    {% if author.death_date %}
+    <h4>Death Date</h4>
+        <li>{{ author.death_date }}</li>
+    {% endif %}
+
+    {% if author.bio %}
+            <h4>Bio</h4>
+            {% if author.bio.value %}
+                {% autoescape off %}
+                <p>{{ author.bio.value|escape|replace("\r\n\r\n", "<br>") }}</p>
+                {% endautoescape %}
+            {% else %}
+                {% autoescape off %}
+                <p>{{ author.bio|escape|replace("\r\n\r\n", "<br>") }}</p>
+                {% endautoescape %}
+            {% endif %}
+    {% endif %}
+
+    {% if author.links %}
+        <li>More Info: </li>
+        <li><a href="{{ author.links[0].url }}">{{ author.links[0].title }}</a></li>
+    {% endif %}
+
+    {% if author.wikipedia %}
+        <li>More Info:
+            <ul>
+            <li><a href="{{ author.wikipedia }}">Wikipedia</a></li>
+            </ul>
+        </li>
+    {% endif %}
+{% endblock %}

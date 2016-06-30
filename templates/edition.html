@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Edition{% endblock %}
+{% block content %}
+    <h1>{{ books[book_index]['editions'][edition_index]['title'] }}</h1>
+    <h2>{{ books[book_index]['editions'][edition_index]['subtitle'] }}</h2>
+
+    {% if book_authors %}
+        <h4>Author(s)</h4>
+        {% for author in books_authors %}
+            <li><a href = "/authors/{{ author.id }}/"> {{ author.name }}</a></li>
+        {% endfor %}
+    {% endif %}
+
+    {% if books[book_index]['editions'][edition_index]['subjects'] %}
+        <h4>Subjects</h4>
+        {% for subject in books[book_index]['editions'][edition_index]['subjects'] %}
+            <li>{{ subject }}</li>
+        {% endfor %}
+    {% endif %}
+
+    {% if books[book_index]['editions'][edition_index]['lc_class'] %}
+        <h4>Library of Congress Call Number</h4>
+        {% for lc_class in books[book_index]['editions'][edition_index]['lc_class'] %}
+            <li>{{ lc_class }}</li>
+        {%  endfor %}
+    {% endif %}
+
+    {% if books[book_index]['editions'][edition_index]['isbn_10'] or books[book_index]['editions'][edition_index]['isbn_13'] %}
+        <h4>ISBN Numbers</h4>
+        {% for isbn_10 in books[book_index]['editions'][edition_index]['isbn_10'] %}
+            <li>{{ isbn_10 }}</li>
+        {%  endfor %}
+        {% for isbn_13 in books[book_index]['editions'][edition_index]['isbn_13'] %}
+            <li>{{ isbn_13 }}</li>
+        {%  endfor %}
+    {% endif %}
+
+
+    {% if books[book_index]['editions'][edition_index]['publishers'] %}
+        <h4>Publishers</h4>
+        {% for publisher in books[book_index]['editions'][edition_index]['publishers'] %}
+            <li>{{ publisher }}</li>
+        {%  endfor %}
+    {% endif %}
+
+        <br>
+        <li>Back to:</li>
+        <li><a href="/books/{{ books[book_index]['id'] }}/"> {{ books[book_index]['title'] }} </a></li>
+
+{% endblock %}
